@@ -3,7 +3,7 @@
 #print("key = {}, value = {}".format(key, value))
 
 import sys
-
+from collections import Counter
 def word_count(file):
     file = open(file)
     words_list = []
@@ -18,9 +18,9 @@ def word_count(file):
                 if char not in punctuation:
                     no_punctuation = no_punctuation + char
             words_list.append(no_punctuation)
-    words_dic = make_dic(words_list)
-    for key, value in words_dic.items():
-        print("{} {}".format(key, value))
+    words_counter = Counter(words_list)
+    for word in words_list:
+        print("{} {}".format(word,words_counter[word]))
     
     
 def make_dic(words):
