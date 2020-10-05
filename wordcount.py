@@ -11,6 +11,7 @@ def word_count(file):
         line = line.rstrip()
         words = line.split(' ')
         for word in words:
+            word = word.lower()
             no_punctuation = ""
             for char in word:
                 if char not in punctuation:
