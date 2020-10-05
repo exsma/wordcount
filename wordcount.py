@@ -2,6 +2,7 @@
 #for key, value in my_dict.items():
 #print("key = {}, value = {}".format(key, value))
 
+import sys
 
 def word_count(file):
     file = open(file)
@@ -21,9 +22,12 @@ def word_count(file):
     for key, value in words_dic.items():
         print("{} {}".format(key, value))
     
+    
 def make_dic(words):
             checking_words = {}
             for word in words:
                 checking_words[word] = checking_words.get(word,0) + 1
             return checking_words
 
+input_filename = sys.argv[1]
+word_count(input_filename)
