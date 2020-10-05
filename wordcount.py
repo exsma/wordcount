@@ -3,15 +3,19 @@
 #print("key = {}, value = {}".format(key, value))
 
 
-
 def word_count(file):
     file = open(file)
     words_list = []
+    punctuation = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
     for line in file:
         line = line.rstrip()
         words = line.split(' ')
         for word in words:
-            words_list.append(word)
+            no_punctuation = ""
+            for char in word:
+                if char not in punctuation:
+                    no_punctuation = no_punctuation + char
+            words_list.append(no_punctuation)
     words_dic = make_dic(words_list)
     for key, value in words_dic.items():
         print("{} {}".format(key, value))
